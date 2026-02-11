@@ -1,0 +1,21 @@
+{
+    "version": 2,
+    "builds": [
+        { "src": "**/*", "use": "@vercel/static" }
+    ],
+    "headers": [
+        {
+            "source": "/Build/(.*).br",
+            "headers": [
+                { "key": "Content-Encoding", "value": "br" }
+            ]
+        },
+        {
+            "source": "/Build/(.*).wasm.br",
+            "headers": [
+                { "key": "Content-Type", "value": "application/wasm" },
+                { "key": "Content-Encoding", "value": "br" }
+            ]
+        }
+    ]
+}
